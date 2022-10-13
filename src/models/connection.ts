@@ -7,4 +7,4 @@ export default mysql.createPool({
   host: 'db',
   user: 'root',
   password: 'password',
-})
+});
