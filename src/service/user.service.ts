@@ -20,9 +20,17 @@ class UserService {
   }
 
   private generateToken = (user: User): string => {
-    const token = jwt.sign(user, secret);
+    const payload = { id: user.id, name: user.username };
+    const token = jwt.sign(payload, secret);
     return token;
   };
+
+  public async login(username: string, password: string): Promise<string> {
+    const user = await this.model.findUserByUsername(username, password);
+    if (!user) return 'ERROR';
+    const token = this.generateToken(user);
+    return token;
+  }
 }
 
 export default UserService;
