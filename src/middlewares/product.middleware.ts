@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
+import statusCodes from '../statusCodes';
 
 const productSchema = Joi.object({
   name: Joi.string().required().min(3).messages({
@@ -18,9 +19,11 @@ const productMiddleware = async (req: Request, res: Response, next: NextFunction
   const validation = productSchema.validate(req.body);
   if (validation.error) {
     if (validation.error.details[0].message.match(/required/)) {
-      return res.status(400).json({ message: validation.error.details[0].message });
+      return res.status(statusCodes.BAD_REQUEST).json({ 
+        message: validation.error.details[0].message });
     } 
-    return res.status(422).json({ message: validation.error.details[0].message });
+    return res.status(statusCodes.UNPROCESSABLE_ENTITY).json({ 
+      message: validation.error.details[0].message });
   }
   next();
 };
