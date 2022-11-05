@@ -1,6 +1,6 @@
-# Projeto Star Wars Planets Search (React, Hooks, ContextAPI, RTL)
+# Projeto TrybeSmith API (REST, TypeScript, MySQL)
 
-API de uma loja de itens medievais, utilizando Typescript para implementar diversas operações CRUD com banco de dados MySQL. As validações de entrada foram feitas com Joi, enquanto a autenticação por token foi feita com JWT. Projeto desenvolvido no modulo de BackEnd do curso da Trybe.
+API de uma loja de itens medievais, utilizando TypeScript para implementar diversas operações CRUD com banco de dados MySQL. As validações de entrada foram feitas com Joi, enquanto a autenticação por token foi feita com JWT. Projeto desenvolvido no modulo de BackEnd do curso da Trybe.
 
 ## Técnologias usadas
 <p align="left">
